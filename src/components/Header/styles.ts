@@ -13,6 +13,7 @@ export const HeaderContainer = styled.header`
   img {
     height: 5rem;
     width: 5rem;
+    cursor: pointer;
   }
 
   nav {
