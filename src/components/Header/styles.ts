@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
-  background-color: ${(props) => props.theme["background"]};
+  background-color:rgba(250, 250, 250, 0.18);
   height: 6.5rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 10rem;
+  z-index: 10;
   
 
   img {

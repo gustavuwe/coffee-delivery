@@ -1,51 +1,56 @@
-import { HeroSection, HeroSectionContent, HomeContainer } from "./styles";
+import {
+  AdvantageItem,
+  HeroSection,
+  HeroSectionContent,
+  HomeContainer,
+} from "./styles";
 import background from "../../assets/background.png";
 import heroImage from "../../assets/heroImage.svg";
-import { ShoppingCart } from "phosphor-react";
+import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 
 export function Home() {
   return (
     <HomeContainer>
       <HeroSection>
-        <img src={background} alt="" className="bg-image"/>
+        <img src={background} alt="" className="bg-image" />
         <HeroSectionContent>
-          <div>
+          <div className="hero-texts-container">
             <div className="hero-text">
-              <h1>Econtre o café perfeito para qualquer hora do dia</h1>
+              <h1>Encontre o café perfeito para qualquer hora do dia</h1>
               <p>
                 Com o Coffee Delivery você recebe seu café onde estiver, a
-                qualquerh hora
+                qualquer hora
               </p>
             </div>
 
             <div className="advantages-items">
-              <div>
+              <AdvantageItem advantageItemColor="yellowDark">
                 <div className="advantages-item-icon">
-                  <ShoppingCart size={24} color="#FFFFF" />
+                  <ShoppingCart size={18} color="#FAFAFA" />
                 </div>
                 <p>Compra simples e segura</p>
-              </div>
-              <div>
+              </AdvantageItem>
+              <AdvantageItem advantageItemColor="baseText">
                 <div className="advantages-item-icon">
-                  <ShoppingCart size={24} color="#FFFFF" />
+                  <Package size={18} color="#FAFAFA" />
                 </div>
-                <p>Compra simples e segura</p>
-              </div>
-              <div>
+                <p>Embalagem mantém o café intacto</p>
+              </AdvantageItem>
+              <AdvantageItem advantageItemColor="yellow">
                 <div className="advantages-item-icon">
-                  <ShoppingCart size={24} color="#FFFFF" />
+                  <Timer size={18} color="#FAFAFA" />
                 </div>
-                <p>Compra simples e segura</p>
-              </div>
-              <div>
+                <p>Entrega rápida e rastreada</p>
+              </AdvantageItem>
+              <AdvantageItem advantageItemColor="purple">
                 <div className="advantages-item-icon">
-                  <ShoppingCart size={24} color="#FFFFF" />
+                  <Coffee size={18} color="#FAFAFA" />
                 </div>
-                <p>Compra simples e segura</p>
-              </div>
+                <p>O café chega fresquinho até você</p>
+              </AdvantageItem>
             </div>
           </div>
-          <img src={heroImage} alt="" />
+          <img src={heroImage} alt="" className="hero-image" />
         </HeroSectionContent>
       </HeroSection>
     </HomeContainer>
