@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
 export const CardItemsSection = styled.section`
-    margin-top: 10rem;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    margin: 10rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 10rem auto 0 auto;
+  z-index: 1;
 
-    .section-title {
-      font-family: "Baloo 2", sans-serif;
-      font-size: 2rem;
-      font-weight: 900;
-      color: ${(props) => props.theme["base-subtitle"]};
-    }
+  .section-title {
+    font-family: "Baloo 2", sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: ${(props) => props.theme["base-subtitle"]};
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -38,7 +38,6 @@ export const CardItem = styled.div`
   .coffee-image {
     position: absolute;
     top: -20px;
-    
   }
 
   .card-badges-container {
@@ -67,18 +66,18 @@ export const CardItem = styled.div`
     gap: 0.5rem;
 
     h1 {
-    font-family: "Baloo 2", sans-serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: ${(props) => props.theme["base-subtitle"]};
-  }
+      font-family: "Baloo 2", sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: ${(props) => props.theme["base-subtitle"]};
+    }
 
-  p {
-    font-size: 0.875rem;
-    color: ${(props) => props.theme["base-label"]};
-    max-width: 216px;
-    text-align: center;
-  }
+    p {
+      font-size: 0.875rem;
+      color: ${(props) => props.theme["base-label"]};
+      max-width: 216px;
+      text-align: center;
+    }
   }
 
   .card-price {
