@@ -1,13 +1,26 @@
 import styled from "styled-components";
 
-export const CardContainer = styled.div`
+export const CardItemsSection = styled.section`
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin: 10rem auto 0 auto;
 
+    .section-title {
+      font-family: "Baloo 2", sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: ${(props) => props.theme["base-subtitle"]};
+    }
+`;
+
+export const CardContainer = styled.div`
+  display: grid;
+  grid: repeat(4, 22rem) / repeat(4, 18rem);
 `;
 
 export const CardItem = styled.div`
-  margin-top: 15rem;
-  margin-left: 10rem;
-  margin-bottom: 5rem;
   position: relative;
   width: 256px;
   height: 310px;
@@ -125,9 +138,16 @@ export const RightButtonsContainer = styled.div`
 `;
 
 export const ShopButton = styled.button`
+  cursor: pointer;
   padding: 8px;
   background-color: ${(props) => props.theme["purple-dark"]};
   border-radius: 6px;
   border: none;
   outline: none;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: ${(props) => props.theme["purple"]};
+    transition: all 0.2s ease-in-out;
+  }
 `;

@@ -3,6 +3,7 @@ import {
   CardContainer,
   CardFooter,
   CardItem,
+  CardItemsSection,
   RightButtonsContainer,
   ShopButton,
 } from "./styles";
@@ -14,16 +15,6 @@ type Coffee = {
   badges: string[];
   price: number;
 };
-
-const temporaryCoffees: Coffee[] = [
-  {
-    id: 1,
-    name: "Expresso Tradicional",
-    description: "O tradicional café feito com água quente e grãos moídos",
-    badges: ["TRADICIONAL", "GELADO"],
-    price: 9.9,
-  },
-];
 
 const coffees: Coffee[] = [
   {
@@ -132,8 +123,8 @@ const coffees: Coffee[] = [
 
 export function ItemsSection() {
   return (
-    <section>
-      <h1>Nossos cafés</h1>
+    <CardItemsSection>
+      <h1 className="section-title">Nossos cafés</h1>
       <CardContainer>
         {coffees.map((coffee) => (
           <CardItem>
@@ -178,6 +169,6 @@ export function ItemsSection() {
           </CardItem>
         ))}
       </CardContainer>
-    </section>
+    </CardItemsSection>
   );
 }
