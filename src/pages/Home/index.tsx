@@ -1,58 +1,43 @@
+import { Hero } from "./components/Hero";
 import {
-  AdvantageItem,
-  HeroSection,
-  HeroSectionContent,
   HomeContainer,
 } from "./styles";
-import background from "../../assets/background.png";
-import heroImage from "../../assets/heroImage.svg";
-import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
+import { ShoppingCart } from "phosphor-react";
 
 export function Home() {
   return (
     <HomeContainer>
-      <HeroSection>
-        <img src={background} alt="" className="bg-image" />
-        <HeroSectionContent>
-          <div className="hero-texts-container">
-            <div className="hero-text">
-              <h1>Encontre o café perfeito para qualquer hora do dia</h1>
-              <p>
-                Com o Coffee Delivery você recebe seu café onde estiver, a
-                qualquer hora
-              </p>
+      <Hero />
+      <section>
+        <h1>Nossos cafés</h1>
+        <div>
+          <div>
+            <img src="" alt="" />
+            <div>
+              {" "}
+              {/* badge */}
+              <p>Tradicional</p>
             </div>
-
-            <div className="advantages-items">
-              <AdvantageItem advantageItemColor="yellowDark">
-                <div className="advantages-item-icon">
-                  <ShoppingCart size={18} color="#FAFAFA" />
+            <h1>Expresso Tradicional</h1>
+            <p>O tradicional café feito com água quente e grãos moídos</p>
+            <div>
+              <p>
+                R$ <span>9,90</span>
+              </p>
+              <div>
+                <div>
+                  <button>+</button>
+                  <p>1</p>
+                  <button>-</button>
                 </div>
-                <p>Compra simples e segura</p>
-              </AdvantageItem>
-              <AdvantageItem advantageItemColor="baseText">
-                <div className="advantages-item-icon">
-                  <Package size={18} color="#FAFAFA" />
+                <div>
+                  <button><ShoppingCart size={24} color="#FAFAFA" /></button>
                 </div>
-                <p>Embalagem mantém o café intacto</p>
-              </AdvantageItem>
-              <AdvantageItem advantageItemColor="yellow">
-                <div className="advantages-item-icon">
-                  <Timer size={18} color="#FAFAFA" />
-                </div>
-                <p>Entrega rápida e rastreada</p>
-              </AdvantageItem>
-              <AdvantageItem advantageItemColor="purple">
-                <div className="advantages-item-icon">
-                  <Coffee size={18} color="#FAFAFA" />
-                </div>
-                <p>O café chega fresquinho até você</p>
-              </AdvantageItem>
+              </div>
             </div>
           </div>
-          <img src={heroImage} alt="" className="hero-image" />
-        </HeroSectionContent>
-      </HeroSection>
+        </div>
+      </section>
     </HomeContainer>
   );
 }
