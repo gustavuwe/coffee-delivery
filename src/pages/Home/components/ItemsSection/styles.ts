@@ -5,30 +5,55 @@ export const CardContainer = styled.div`
 `;
 
 export const CardItem = styled.div`
+  margin-top: 15rem;
+  margin-left: 10rem;
+  margin-bottom: 5rem;
+  position: relative;
   width: 256px;
   height: 310px;
   background-color: ${(props) => props.theme["base-card"]};
-  border-top-right-radius: 40px;
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 40px;
+  border-top-right-radius: 36px;
+  border-top-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 36px;
   align-items: center;
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  text-align: center;
+
+  .coffee-image {
+    position: absolute;
+    top: -20px;
+    
+  }
+
+  .card-badges-container {
+    display: flex;
+    flex-direction: row;
+    gap: 0.25rem;
+  }
 
   .card-badge {
-    padding: 0.125rem 0.25rem;
+    margin-top: 6rem; // 0.75rem
+    padding: 0.25rem 0.5rem;
     background-color: ${(props) => props.theme["yellow-light"]};
     border-radius: 999px;
 
     p {
       font-size: 0.625rem;
       color: ${(props) => props.theme["yellow-dark"]};
+      font-weight: 600;
     }
   }
 
-  h1 {
+  .card-texts {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    h1 {
     font-family: "Baloo 2", sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
@@ -40,6 +65,7 @@ export const CardItem = styled.div`
     color: ${(props) => props.theme["base-label"]};
     max-width: 216px;
     text-align: center;
+  }
   }
 
   .card-price {
@@ -55,16 +81,17 @@ export const CardItem = styled.div`
 `;
 
 export const CardFooter = styled.div`
+  margin-top: 2rem;
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  align-items: center;
 
   .quantity-buttons {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
-    width: 72px;
-    height: 38px;
+    padding: 8px;
     background-color: ${(props) => props.theme["base-button"]};
     align-items: center;
     justify-content: center;
@@ -89,6 +116,12 @@ export const CardFooter = styled.div`
       font-size: 1rem;
     }
   }
+`;
+
+export const RightButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
 `;
 
 export const ShopButton = styled.button`
