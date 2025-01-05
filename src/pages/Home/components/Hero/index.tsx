@@ -20,25 +20,25 @@ export function Hero() {
             <div className="advantages-items">
               <AdvantageItem advantageItemColor="yellowDark">
                 <div className="advantages-item-icon">
-                  <ShoppingCart size={18} color="#FAFAFA" />
+                  <ShoppingCart size={18} color="#FAFAFA" weight="fill" />
                 </div>
                 <p>Compra simples e segura</p>
               </AdvantageItem>
               <AdvantageItem advantageItemColor="baseText">
                 <div className="advantages-item-icon">
-                  <Package size={18} color="#FAFAFA" />
+                  <Package size={18} color="#FAFAFA" weight="fill" />
                 </div>
                 <p>Embalagem mantém o café intacto</p>
               </AdvantageItem>
               <AdvantageItem advantageItemColor="yellow">
                 <div className="advantages-item-icon">
-                  <Timer size={18} color="#FAFAFA" />
+                  <Timer size={18} color="#FAFAFA" weight="fill" />
                 </div>
                 <p>Entrega rápida e rastreada</p>
               </AdvantageItem>
               <AdvantageItem advantageItemColor="purple">
                 <div className="advantages-item-icon">
-                  <Coffee size={18} color="#FAFAFA" />
+                  <Coffee size={18} color="#FAFAFA" weight="fill" />
                 </div>
                 <p>O café chega fresquinho até você</p>
               </AdvantageItem>

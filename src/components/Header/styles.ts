@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
-  background-color:rgba(250, 250, 250, 0.18);
+  background-color: rgba(250, 250, 250, 0.18);
   height: 6.5rem;
   width: 100%;
   display: flex;
@@ -9,7 +9,6 @@ export const HeaderContainer = styled.header`
   align-items: center;
   padding: 0 10rem;
   z-index: 10;
-  
 
   img {
     height: 5rem;
@@ -58,24 +57,26 @@ export const HeaderContainer = styled.header`
     }
 
     .cart-button {
-        background-color: ${(props) => props.theme["yellow-light"]};
+      background-color: ${(props) => props.theme["yellow-light"]};
+      transition: all 0.3s ease-in-out;
+      width: 38px;
+      height: 38px;
+      border-radius: 6px;
+      border: none;
+
+      &:hover {
+        background-color: ${(props) => props.theme["yellow"]};
         transition: all 0.3s ease-in-out;
-        width: 38px;
-        height: 38px;
-        border-radius: 6px;
-        border: none;
-
-        &:hover {
-          background-color: ${(props) => props.theme["yellow"]};
-          transition: all 0.3s ease-in-out;
-        }
-
+        
         svg {
+          fill: ${(props) => props.theme["white"]};
+        }
+      }
+
+      svg {
         margin-right: 0.5rem;
-        color: ${(props) => props.theme["yellow-dark"]};
         margin: 0 auto;
       }
-      }
-
+    }
   }
 `;

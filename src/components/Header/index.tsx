@@ -7,9 +7,9 @@ export function Header() {
     <HeaderContainer>
       <img src={logo} alt="" />
       <nav>
-        <button className="location-button"><MapPin size={24} color="purple" />Porto Alegre, RS</button>
+        <button className="location-button"><MapPin size={24} color="purple" weight="fill" />Porto Alegre, RS</button>
         <button className="cart-button">
-        <ShoppingCart size={24} color="#C47F17"  />
+        <ShoppingCart size={24} color="#C47F17" weight="fill" />
         </button>
       </nav>
     </HeaderContainer>

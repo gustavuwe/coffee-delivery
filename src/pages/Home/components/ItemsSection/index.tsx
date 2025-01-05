@@ -1,6 +1,5 @@
-import { ShoppingCart } from "phosphor-react";
-import Coffee1 from "../../../../assets/Coffee1.png"
-import { CardContainer, CardItem } from "./styles";
+import { Minus, Plus, ShoppingCart } from "phosphor-react";
+import { CardContainer, CardFooter, CardItem, ShopButton } from "./styles";
 
 type Coffee = {
   id: number;
@@ -43,23 +42,23 @@ export function ItemsSection() {
           </div>
           <h1>Expresso Tradicional</h1>
           <p>O tradicional café feito com água quente e grãos moídos</p>
-          <div>
-            <p>
+          <CardFooter>
+            <p className="card-price">
               R$ <span>9,90</span>
             </p>
             <div>
-              <div>
-                <button>+</button>
+              <div className="quantity-buttons">
+                <button><Plus size={16} /></button>
                 <p>1</p>
-                <button>-</button>
+                <button><Minus size={16} /></button>
               </div>
               <div>
-                <button>
-                  <ShoppingCart size={24} color="#FAFAFA" />
-                </button>
+                <ShopButton>
+                  <ShoppingCart size={24} color="#FAFAFA" weight="fill" />
+                </ShopButton>
               </div>
-            </div>
-          </div>
+              </div>
+            </CardFooter>
         </CardItem>
         ))}
       </CardContainer>
