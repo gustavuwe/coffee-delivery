@@ -7,6 +7,7 @@ import {
   RightButtonsContainer,
   ShopButton,
 } from "./styles";
+import { useState } from "react";
 
 type Coffee = {
   id: number;
@@ -14,15 +15,17 @@ type Coffee = {
   description: string;
   badges: string[];
   price: number;
+  quantity: number;
 };
 
-const coffees: Coffee[] = [
+const initialCoffees: Coffee[] = [
   {
     id: 1,
     name: "Expresso Tradicional",
     description: "O tradicional café feito com água quente e grãos moídos",
     badges: ["TRADICIONAL"],
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 2,
@@ -30,6 +33,7 @@ const coffees: Coffee[] = [
     description: "Expresso diluído, menos intenso que o tradicional",
     badges: ["TRADICIONAL"],
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 3,
@@ -37,6 +41,7 @@ const coffees: Coffee[] = [
     description: "Café expresso tradicional com espuma cremosa",
     badges: ["TRADICIONAL"],
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 4,
@@ -44,6 +49,7 @@ const coffees: Coffee[] = [
     description: "Bebida preparada com café expresso e cubos de gelo",
     badges: ["TRADICIONAL", "GELADO"],
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 5,
@@ -51,6 +57,7 @@ const coffees: Coffee[] = [
     description: "Meio a meio de expresso tradicional com leite vaporizado",
     badges: ["TRADICIONAL", "COM LEITE"],
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 6,
@@ -59,6 +66,7 @@ const coffees: Coffee[] = [
       "Uma dose de café expresso com o dobro de leite e espuma cremosa",
     badges: ["TRADICIONAL", "COM LEITE"],
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 7,
@@ -67,6 +75,7 @@ const coffees: Coffee[] = [
       "Bebida com canela feita de doses iguais de café, leite e espuma",
     badges: ["TRADICIONAL", "COM LEITE"],
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 8,
@@ -75,6 +84,7 @@ const coffees: Coffee[] = [
       "Café expresso misturado com um pouco de leite quente e espuma",
     badges: ["TRADICIONAL", "COM LEITE"],
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 9,
@@ -82,6 +92,7 @@ const coffees: Coffee[] = [
     description: "Café expresso com calda de chocolate, pouco leite e espuma",
     badges: ["TRADICIONAL", "COM LEITE"],
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 10,
@@ -89,6 +100,7 @@ const coffees: Coffee[] = [
     description: "Bebida feita com chocolate dissolvido no leite quente e café",
     badges: ["TRADICIONAL", "COM LEITE"],
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 11,
@@ -97,6 +109,7 @@ const coffees: Coffee[] = [
       "Drink gelado de café expresso com rum, creme de leite e hortelã",
     badges: ["TRADICIONAL", "ALCOÓLICO", "GELADO"],
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 12,
@@ -104,6 +117,7 @@ const coffees: Coffee[] = [
     description: "Bebida adocicada preparada com café e leite de coco",
     badges: ["ESPECIAL"],
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 13,
@@ -111,6 +125,7 @@ const coffees: Coffee[] = [
     description: "Bebida preparada com grãos de café árabe e especiarias",
     badges: ["ESPECIAL"],
     price: 9.9,
+    quantity: 0,
   },
   {
     id: 14,
@@ -118,10 +133,23 @@ const coffees: Coffee[] = [
     description: "Bebida a base de café, uísque irlandês, açúcar e chantilly",
     badges: ["ESPECIAL", "ALCOÓLICO"],
     price: 9.9,
+    quantity: 0,
   },
 ];
 
 export function ItemsSection() {
+  const [coffees, setCoffees] = useState<Coffee[]>(initialCoffees);
+
+  function addCoffeeSelected(coffee: Coffee) {
+    coffees.map((c: Coffee) => {
+      if (c.id === coffee.id) {
+        c.quantity++;
+      }
+    })
+
+    console.log(coffees)
+  }
+
   return (
     <CardItemsSection>
       <h1 className="section-title">Nossos cafés</h1>
@@ -151,10 +179,10 @@ export function ItemsSection() {
               </p>
               <RightButtonsContainer>
                 <div className="quantity-buttons">
-                  <button>
+                  <button onClick={() => addCoffeeSelected(coffee)}>
                     <Plus size={16} />
                   </button>
-                  <p>1</p>
+                  <p>{coffee.quantity}</p>
                   <button>
                     <Minus size={16} />
                   </button>
