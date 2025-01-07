@@ -141,13 +141,21 @@ export function ItemsSection() {
   const [coffees, setCoffees] = useState<Coffee[]>(initialCoffees);
 
   function addCoffeeSelected(coffee: Coffee) {
-    coffees.map((c: Coffee) => {
-      if (c.id === coffee.id) {
-        c.quantity++;
-      }
-    })
+    const updatedCoffees = coffees.map((c) =>
+      c.id === coffee.id ? { ...c, quantity: c.quantity + 1 } : c
+    );
 
-    console.log(coffees)
+    setCoffees(updatedCoffees);
+  }
+
+  function removeCoffeeSelected(coffee: Coffee) {
+    if (coffee.quantity > 0) {
+      const updatedCoffees = coffees.map((c) =>
+        c.id === coffee.id ? { ...c, quantity: c.quantity - 1 } : c
+      );
+
+      setCoffees(updatedCoffees);
+    }
   }
 
   return (
@@ -183,7 +191,7 @@ export function ItemsSection() {
                     <Plus size={16} />
                   </button>
                   <p>{coffee.quantity}</p>
-                  <button>
+                  <button onClick={() => removeCoffeeSelected(coffee)}>
                     <Minus size={16} />
                   </button>
                 </div>
