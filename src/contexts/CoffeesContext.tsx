@@ -130,9 +130,8 @@ interface CoffeesContextProviderProps {
 export function CoffeesContextProvider({
   children,
 }: CoffeesContextProviderProps) {
-  const [coffes, dispatch] = useReducer(coffeesReducer, {
+  const [coffees, dispatch] = useReducer(coffeesReducer, {
     coffees: initialCoffees,
-  })
+  },
+  );
 }
-
-
