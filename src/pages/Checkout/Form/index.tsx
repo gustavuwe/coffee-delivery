@@ -3,6 +3,7 @@ export function CheckoutForm() {
     <>
       <div>
         <div>
+          <h1>Complete seu Pedido</h1>
           <form>
             <h1>Endereço de entrega</h1>
             <p>Informe o endereço onde deseja receber seu pedido</p>
@@ -37,14 +38,33 @@ export function CheckoutForm() {
         </div>
       </div>
       <div>
+        Cafés selecionados
         <div>
-          <h1>Expresso Tradicional</h1>
           <div>
-            <button>- 1 +</button>
-            <button>- 1 +</button>
+            <h1>Expresso Tradicional</h1>
+            <div>
+              <button>- 1 +</button>
+              <button>Remover</button>
+            </div>
           </div>
-
-          {/* terminar aqui */}
+          <div>
+            <p>R$ 9,90</p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>Total de Itens</p>
+            <p>R$ 29,70</p>
+          </div>
+          <div>
+            <p>Entrega</p>
+            <p>R$ 3,50</p>
+          </div>
+          <div>
+            <h1>Total</h1>
+            <h1>R$ 33,20</h1>
+          </div>
+          <button>CONFIRMAR PEDIDO</button>
         </div>
       </div>
     </>
