@@ -1,4 +1,21 @@
-import { AdressText, CheckoutFormContainer, LeftForm, LeftFormTitle } from "./styles";
+import {
+  Bank,
+  CreditCard,
+  CurrencyDollar,
+  MapPinLine,
+  Money,
+} from "phosphor-react";
+import {
+  AdressText,
+  ButtonsContainer,
+  CheckoutFormContainer,
+  InputsContainer,
+  LeftForm,
+  LeftFormTitle,
+  PaymentContainer,
+  PaymentForm,
+  PaymentHeader,
+} from "./styles";
 
 export function CheckoutForm() {
   return (
@@ -9,38 +26,66 @@ export function CheckoutForm() {
             <LeftFormTitle>Complete seu Pedido</LeftFormTitle>
             <form>
               <AdressText>
-                <h1>Endereço de entrega</h1>
-                <p>Informe o endereço onde deseja receber seu pedido</p>
+                <MapPinLine size={24} />
+                <div className="addressTextContainer">
+                  <h1>Endereço de entrega</h1>
+                  <p>Informe o endereço onde deseja receber seu pedido</p>
+                </div>
               </AdressText>
 
-              <input type="text" placeholder="CEP" />
-              <input type="text" placeholder="Rua" />
-              <div>
-                <input type="text" placeholder="Número" />
-                <input type="text" placeholder="Complemento" />
-              </div>
-              <div>
-                <input type="text" placeholder="Bairro" />
-                <input type="text" placeholder="Cidade" />
-                <input type="text" placeholder="UF" />
-              </div>
+              <InputsContainer>
+                <input type="text" placeholder="CEP" id="cep-input" />
+                <input type="text" placeholder="Rua" id="street-input" />
+                <div className="input-row-3">
+                  <input type="text" placeholder="Número" id="number-input" />
+                  <input
+                    type="text"
+                    placeholder="Complemento"
+                    id="complement-input"
+                  />
+                </div>
+                <div className="input-row-4">
+                  <input
+                    type="text"
+                    placeholder="Bairro"
+                    id="neighborhood-input"
+                  />
+                  <input type="text" placeholder="Cidade" id="city-input" />
+                  <input type="text" placeholder="UF" id="uf-input" />
+                </div>
+              </InputsContainer>
             </form>
           </div>
 
-          <div>
-            <form>
-              <h1>Pagamento</h1>
-              <p>
-                O pagamento é feito na entrega. Escolha a forma que deseja pagar
-              </p>
+          <PaymentContainer>
+            <PaymentForm>
+              <PaymentHeader>
+                <CurrencyDollar size={24} />
+                <div>
+                  <h1>Pagamento</h1>
+                  <p>
+                    O pagamento é feito na entrega. Escolha a forma que deseja
+                    pagar
+                  </p>
+                </div>
+              </PaymentHeader>
 
-              <div>
-                <button>CARTÃO DE CRÉDITO</button>
-                <button>CARTÃO DE DÉBITO</button>
-                <button>DINHEIRO</button>
-              </div>
-            </form>
-          </div>
+              <ButtonsContainer>
+                <button>
+                    <CreditCard size={18} />
+                    <p>CARTÃO DE CRÉDITO</p>
+                </button>
+                <button>
+                    <Bank size={18} />
+                    <p>CARTÃO DE DÉBITO</p>
+                </button>
+                <button>
+                    <Money size={18} />
+                    <p>DINHEIRO</p>
+                </button>
+              </ButtonsContainer>
+            </PaymentForm>
+          </PaymentContainer>
         </LeftForm>
         <div>
           Cafés selecionados
