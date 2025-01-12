@@ -26,6 +26,15 @@ export const LeftForm = styled.div`
     border-radius: 6px;
 
     input {
+      background-color: ${(props) => props.theme["base-input"]};
+      padding: 12px;
+      border: none;
+
+      &::placeholder {
+        color: ${(props) => props.theme["base-label"]};
+        font-family: "Roboto", sans-serif;
+        font-size: 0.875rem;
+      }
     }
   }
 `;
