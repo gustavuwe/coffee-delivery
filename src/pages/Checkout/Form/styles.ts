@@ -172,3 +172,172 @@ export const ButtonsContainer = styled.div`
     }
   }
 `;
+
+export const RightResume = styled.div`
+  width: 448px;
+  background-color: ${(props) => props.theme["base-card"]};
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  padding: 2.5rem;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 44px;
+  border-bottom-left-radius: 44px;
+  border-bottom-right-radius: 6px;
+
+  .item-separator {
+    margin-top: 24px;
+    width: 100%;
+    height: 1.5px;
+    background-color: ${(props) => props.theme["base-button"]};
+    margin-bottom: 24px;
+  }
+`;
+
+export const ItemContainer = styled.div`
+  margin-left: 0.5rem;
+`;
+
+export const RightResumeTitle = styled.h1`
+  font-size: 1.125rem;
+  font-family: "Baloo 2", sans-serif;
+  color: ${(props) => props.theme["base-subtitle"]};
+  margin-bottom: 1rem;
+`;
+
+export const ResumeItem = styled.div`
+  img {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  h1 {
+    font-size: 1rem;
+    font-family: "Roboto", sans-serif;
+    color: ${(props) => props.theme["base-subtitle"]};
+    font-weight: 400;
+  }
+
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+
+  .resumeItemButtonsContainer {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    height: 2rem;
+
+    button {
+      padding: 0.5rem;
+      border-radius: 6px;
+      background-color: ${(props) => props.theme["base-button"]};
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      gap: 0.5rem;
+      border: none;
+
+      p {
+        color: ${(props) => props.theme["base-text"]};
+        font-size: 0.875rem;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+      }
+
+      svg {
+        color: ${(props) => props.theme["purple"]};
+      }
+    }
+
+    .quantity-buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 0.5rem;
+      background-color: ${(props) => props.theme["base-button"]};
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+
+
+      button {
+        padding: 0.5rem;
+        color: ${(props) => props.theme["purple"]};
+        outline: none;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        font-weight: 300;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          color: ${(props) => props.theme["purple-dark"]};
+          transition: all 0.2s ease-in-out;
+        }
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+`;
+
+export const Summary = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  p {
+    font-size: 0.875rem;
+    font-family: "Roboto", sans-serif;
+    color: ${(props) => props.theme["base-text"]};
+    font-weight: 400;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+    font-family: "Roboto", sans-serif;
+    color: ${(props) => props.theme["base-subtitle"]};
+    font-weight: bold;
+  }
+
+  .total-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+
+  .delivery-fee {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+
+  .total-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  button {
+    padding: 12px 8px;
+    border-radius: 6px;
+    background-color: ${(props) => props.theme["yellow"]};
+    cursor: pointer;
+    border: none;
+
+    p {
+      color: ${(props) => props.theme["white"]};
+      font-size: 0.875rem;
+      font-family: "Roboto", sans-serif;
+      font-weight: 500;
+    }
+  }
+`;
