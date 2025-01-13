@@ -9,7 +9,7 @@ export type Coffee = {
   quantity: number;
 };
 
-interface CoffeesState {
+export interface CoffeesState {
   coffees: Coffee[];
 }
 
@@ -27,5 +27,7 @@ export function coffeesReducer(state: CoffeesState, action: any) {
         coffees: updatedCoffees,
       };
     }
+    default: 
+    return state;
   }
 }
