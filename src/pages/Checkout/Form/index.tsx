@@ -24,8 +24,19 @@ import {
   RightResumeTitle,
   Summary,
 } from "./styles";
+import { useContext, useEffect, useState } from "react";
+import { CoffeesContext, type Coffee } from "../../../contexts/CoffeesContext";
 
 export function CheckoutForm() {
+  const { coffees } = useContext(CoffeesContext);
+
+  // const [coffeesSelected, setCoffeesSelected] = useState<Coffee[]>([]);
+
+  // useEffect(() => {
+  //   const CoffeesSelected = coffees.filter((coffee: Coffee) => coffee.quantity > 0);
+  //   setCoffeesSelected(CoffeesSelected);
+  // }, [coffees]);
+
   return (
     <>
       <CheckoutFormContainer>
@@ -100,34 +111,39 @@ export function CheckoutForm() {
           <RightResumeTitle>Cafés selecionados</RightResumeTitle>
           <RightResume>
             <div>
-              <ResumeItem>
-                <img src="src/assets/Coffee1.png" alt="Coffee Image" />
-                <ItemContainer>
-                  <h1>Expresso Tradicional</h1>
-                  <div className="resumeItemButtonsContainer">
-                    <div className="quantity-buttons">
-                      <button /* onClick={ () => addCoffeeSelected(coffee)} */>
-                        <Plus size={16} />
-                      </button>
-                      <p>0</p>
-                      <button /* onClick={() => removeCoffeeSelected(coffee)} */
-                      >
-                        <Minus size={16} />
-                      </button>
-                    </div>
-                    <button>
-                      <Trash /> <p>REMOVER</p>
-                    </button>
-                  </div>
-                </ItemContainer>
-                <p>R$9,90</p>
-              </ResumeItem>
+              {coffees.map((coffee: Coffee) => {
+                return (
+                  <ResumeItem>
+                    <img src={`src/assets/Coffee${coffee.id}.png`} alt="Coffee Image" />
+                    <ItemContainer>
+                      <h1>{coffee.name}</h1>
+                      <div className="resumeItemButtonsContainer">
+                        <div className="quantity-buttons">
+                          <button /* onClick={ () => addCoffeeSelected(coffee)} */
+                          >
+                            <Plus size={16} />
+                          </button>
+                          <p>{coffee.quantity}</p>
+                          <button /* onClick={() => removeCoffeeSelected(coffee)} */
+                          >
+                            <Minus size={16} />
+                          </button>
+                        </div>
+                        <button>
+                          <Trash /> <p>REMOVER</p>
+                        </button>
+                      </div>
+                    </ItemContainer>
+                    <p>R${coffee.price.toFixed(2)}</p>
+                  </ResumeItem>
+                );
+              })}
               <div className="item-separator"></div>
             </div>
             <Summary>
               <div className="total-items">
                 <p>Total de Itens</p>
-                <p>R$ 29,70</p>
+                <p>R$ {coffees.reduce((total, coffee) => total + coffee.price, 0).toFixed(2)}</p>
               </div>
               <div className="delivery-fee">
                 <p>Entrega</p>
@@ -135,9 +151,11 @@ export function CheckoutForm() {
               </div>
               <div className="total-price">
                 <h1>Total</h1>
-                <h1>R$ 33,20</h1>
+                <h1>R$ {coffees.reduce((total, coffee) => total + coffee.price, 3.50).toFixed(2)}</h1>
               </div>
-              <button><p>CONFIRMAR PEDIDO</p></button>
+              <button>
+                <p>CONFIRMAR PEDIDO</p>
+              </button>
             </Summary>
           </RightResume>
         </div>
