@@ -1,6 +1,5 @@
-import { createContext, useReducer, Dispatch, type ReactNode } from "react";
+import { createContext, useReducer, type ReactNode } from "react";
 import { coffeesReducer } from "../reducers/coffees/reducer";
-import type { ActionTypes } from "../reducers/coffees/action";
 
 type Coffee = {
   id: number;
@@ -12,9 +11,9 @@ type Coffee = {
 };
 
 
-interface CoffeesState {
-  coffees: Coffee[];
-}
+// interface CoffeesState {
+//   coffees: Coffee[];
+// }
 
 
 const initialCoffees: Coffee[] = [
@@ -136,19 +135,18 @@ const initialCoffees: Coffee[] = [
   },
 ];
 
-const initialState: CoffeesState = {
-  coffees: initialCoffees,
-}
+// const initialState: CoffeesState = {
+//   coffees: initialCoffees,
+// }
 
 interface CoffeesContextType {
-  state: CoffeesState;
-  dispatch: Dispatch<ActionTypes>;
+  // state: CoffeesState;
+  // dispatch: Dispatch<ActionTypes>;
+  coffees: Coffee[];
 }
 
-const CoffeesContext = createContext<CoffeesContextType>({
-  state: initialState,
-  dispatch: () => null,
-});
+// eslint-disable-next-line
+export const CoffeesContext = createContext({} as CoffeesContextType);
 
 interface CoffeesContextProviderProps {
   children: ReactNode;
@@ -157,12 +155,12 @@ interface CoffeesContextProviderProps {
 export function CoffeesContextProvider({
   children,
 }: CoffeesContextProviderProps) {
-  const [state, dispatch] = useReducer(coffeesReducer, {
+  const [coffeeState, dispatch] = useReducer(coffeesReducer, {
     coffees: initialCoffees
   });
 
   return (
-    <CoffeesContext.Provider value={{ state, dispatch }}>
+    <CoffeesContext.Provider value={{ coffees: initialCoffees }}>
       {children}
     </CoffeesContext.Provider>
   )
