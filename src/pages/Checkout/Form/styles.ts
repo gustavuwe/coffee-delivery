@@ -188,7 +188,7 @@ export const RightResume = styled.div`
   .item-separator {
     margin-top: 24px;
     width: 100%;
-    height: 1.5px;
+    height: 1px;
     background-color: ${(props) => props.theme["base-button"]};
     margin-bottom: 24px;
   }
@@ -260,7 +260,6 @@ export const ResumeItem = styled.div`
       justify-content: center;
       border-radius: 6px;
 
-
       button {
         padding: 0.5rem;
         color: ${(props) => props.theme["purple"]};
@@ -281,6 +280,12 @@ export const ResumeItem = styled.div`
         font-size: 1rem;
       }
     }
+  }
+
+  .item-price {
+    color: ${(props) => props.theme["base-text"]};
+    font-size: 1rem;
+    font-weight: bold;
   }
 `;
 
@@ -308,7 +313,6 @@ export const Summary = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
   }
 
   .delivery-fee {
@@ -316,7 +320,6 @@ export const Summary = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    
   }
 
   .total-price {

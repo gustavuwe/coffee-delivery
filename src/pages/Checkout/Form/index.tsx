@@ -30,12 +30,14 @@ import { CoffeesContext, type Coffee } from "../../../contexts/CoffeesContext";
 export function CheckoutForm() {
   const { coffees } = useContext(CoffeesContext);
 
-  // const [coffeesSelected, setCoffeesSelected] = useState<Coffee[]>([]);
+  const [coffeesSelected, setCoffeesSelected] = useState<Coffee[]>([]);
 
-  // useEffect(() => {
-  //   const CoffeesSelected = coffees.filter((coffee: Coffee) => coffee.quantity > 0);
-  //   setCoffeesSelected(CoffeesSelected);
-  // }, [coffees]);
+  useEffect(() => {
+    const CoffeesSelected = coffees.filter(
+      (coffee: Coffee) => coffee.quantity > 0
+    );
+    setCoffeesSelected(CoffeesSelected);
+  }, [coffees]);
 
   return (
     <>
@@ -111,39 +113,49 @@ export function CheckoutForm() {
           <RightResumeTitle>Cafés selecionados</RightResumeTitle>
           <RightResume>
             <div>
-              {coffees.map((coffee: Coffee) => {
+              {coffeesSelected.map((coffee: Coffee) => {
                 return (
-                  <ResumeItem>
-                    <img src={`src/assets/Coffee${coffee.id}.png`} alt="Coffee Image" />
-                    <ItemContainer>
-                      <h1>{coffee.name}</h1>
-                      <div className="resumeItemButtonsContainer">
-                        <div className="quantity-buttons">
-                          <button /* onClick={ () => addCoffeeSelected(coffee)} */
-                          >
-                            <Plus size={16} />
-                          </button>
-                          <p>{coffee.quantity}</p>
-                          <button /* onClick={() => removeCoffeeSelected(coffee)} */
-                          >
-                            <Minus size={16} />
+                  <>
+                    <ResumeItem>
+                      <img
+                        src={`src/assets/Coffee${coffee.id}.png`}
+                        alt="Coffee Image"
+                      />
+                      <ItemContainer>
+                        <h1>{coffee.name}</h1>
+                        <div className="resumeItemButtonsContainer">
+                          <div className="quantity-buttons">
+                            <button /* onClick={ () => addCoffeeSelected(coffee)} */
+                            >
+                              <Plus size={16} />
+                            </button>
+                            <p>{coffee.quantity}</p>
+                            <button /* onClick={() => removeCoffeeSelected(coffee)} */
+                            >
+                              <Minus size={16} />
+                            </button>
+                          </div>
+                          <button>
+                            <Trash /> <p>REMOVER</p>
                           </button>
                         </div>
-                        <button>
-                          <Trash /> <p>REMOVER</p>
-                        </button>
-                      </div>
-                    </ItemContainer>
-                    <p>R${coffee.price.toFixed(2)}</p>
-                  </ResumeItem>
+                      </ItemContainer>
+                      <p className="item-price">R$ {coffee.price.toFixed(2)}</p>
+                    </ResumeItem>
+                    <div className="item-separator"></div>
+                  </>
                 );
               })}
-              <div className="item-separator"></div>
             </div>
             <Summary>
               <div className="total-items">
                 <p>Total de Itens</p>
-                <p>R$ {coffees.reduce((total, coffee) => total + coffee.price, 0).toFixed(2)}</p>
+                <p>
+                  R${" "}
+                  {coffees
+                    .reduce((total, coffee) => total + coffee.price, 0)
+                    .toFixed(2)}
+                </p>
               </div>
               <div className="delivery-fee">
                 <p>Entrega</p>
@@ -151,7 +163,12 @@ export function CheckoutForm() {
               </div>
               <div className="total-price">
                 <h1>Total</h1>
-                <h1>R$ {coffees.reduce((total, coffee) => total + coffee.price, 3.50).toFixed(2)}</h1>
+                <h1>
+                  R${" "}
+                  {coffees
+                    .reduce((total, coffee) => total + coffee.price, 3.5)
+                    .toFixed(2)}
+                </h1>
               </div>
               <button>
                 <p>CONFIRMAR PEDIDO</p>
