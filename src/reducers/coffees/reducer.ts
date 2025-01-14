@@ -16,10 +16,10 @@ export interface CoffeesState {
 export function coffeesReducer(state: CoffeesState, action: any) {
   switch (action.type) {
     case ActionTypes.ADD_NEW_COFFEE: {
-      const { coffee } = action.payload;
+      const { id } = action.payload.data;
 
       const updatedCoffees = state.coffees.map((c) =>
-        c.id === coffee.id ? { ...c, quantity: c.quantity + 1 } : c
+        c.id === id ? { ...c, quantity: c.quantity + 1 } : c
       );
 
       return {
@@ -28,15 +28,12 @@ export function coffeesReducer(state: CoffeesState, action: any) {
       };
     }
 
-    case ActionTypes.UPDATE_COFFEE_QUANTITY: {
-      const { coffee } = action.payload;
-      
-      const updatedCoffees = state.coffees.map((c) => {
-        if (c.id === coffee.id) {
-          return { ...c, quantity: c.quantity + 1 };
-        }
-        return c;
-      });
+    case ActionTypes.REMOVE_COFFEE_QUANTITY: {
+      const { id } = action.payload.data;
+
+      const updatedCoffees = state.coffees.map((c) =>
+        c.id === id ? { ...c, quantity: c.quantity - 1 } : c
+      );
 
       return {
         ...state,

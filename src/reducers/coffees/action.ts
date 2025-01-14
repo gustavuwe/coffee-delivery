@@ -1,24 +1,26 @@
-import type { Coffee } from "../../pages/Home/components/ItemsSection";
+import type { addNewCoffeeData, removeCoffeeData } from "../../contexts/CoffeesContext";
 
 export enum ActionTypes {
   ADD_NEW_COFFEE = "ADD_NEW_COFFEE",
   UPDATE_COFFEE_QUANTITY = "UPDATE_COFFEE_QUANTITY",
+  REMOVE_COFFEE_QUANTITY = "REMOVE_COFFEE_QUANTITY",
+
 }
 
-export function addNewCoffeeAction(coffee: Coffee) {
+export function addNewCoffeeAction(data: addNewCoffeeData) {
   return {
     type: ActionTypes.ADD_NEW_COFFEE,
     payload: {
-      coffee,
+      data,
     }
   }
 }
 
-export function updateCoffeeQuantityAction(coffee: Coffee) {
+export function removeCoffeeAction(data: removeCoffeeData) {
   return {
-    type: ActionTypes.UPDATE_COFFEE_QUANTITY,
+    type: ActionTypes.REMOVE_COFFEE_QUANTITY,
     payload: {
-      coffee,
-    },
+      data,
+    }
   }
 }

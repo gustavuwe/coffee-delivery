@@ -7,7 +7,7 @@ import {
   RightButtonsContainer,
   ShopButton,
 } from "./styles";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CoffeesContext } from "../../../../contexts/CoffeesContext";
 
@@ -21,25 +21,17 @@ export type Coffee = {
 };
 
 export function ItemsSection() {
-  const { coffees } = useContext(CoffeesContext)
+  const { coffees, addNewCoffee, removeCoffee } = useContext(CoffeesContext)
 
   // const [coffees, setCoffees] = useState<Coffee[]>(initialCoffees);
 
   function addCoffeeSelected(coffee: Coffee) {
-    const updatedCoffees = coffees.map((c) =>
-      c.id === coffee.id ? { ...c, quantity: c.quantity + 1 } : c
-    );
-
-    setCoffees(updatedCoffees);
+    addNewCoffee({ id: coffee.id });
   }
 
   function removeCoffeeSelected(coffee: Coffee) {
     if (coffee.quantity > 0) {
-      const updatedCoffees = coffees.map((c) =>
-        c.id === coffee.id ? { ...c, quantity: c.quantity - 1 } : c
-      );
-
-      setCoffees(updatedCoffees);
+      removeCoffee({ id: coffee.id });
     }
   }
 
@@ -81,10 +73,10 @@ export function ItemsSection() {
                   </button>
                 </div>
                 <div>
-                <Link to="/checkout">
-                  <ShopButton>
-                    <ShoppingCart size={24} color="#FAFAFA" weight="fill" />
-                  </ShopButton>
+                  <Link to="/checkout">
+                    <ShopButton>
+                      <ShoppingCart size={24} color="#FAFAFA" weight="fill" />
+                    </ShopButton>
                   </Link>
                 </div>
               </RightButtonsContainer>
