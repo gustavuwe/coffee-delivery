@@ -27,6 +27,22 @@ export function coffeesReducer(state: CoffeesState, action: any) {
         coffees: updatedCoffees,
       };
     }
+
+    case ActionTypes.UPDATE_COFFEE_QUANTITY: {
+      const { coffee } = action.payload;
+      
+      const updatedCoffees = state.coffees.map((c) => {
+        if (c.id === coffee.id) {
+          return { ...c, quantity: c.quantity + 1 };
+        }
+        return c;
+      });
+
+      return {
+        ...state,
+        coffees: updatedCoffees,
+      };
+    }
     default: 
     return state;
   }
