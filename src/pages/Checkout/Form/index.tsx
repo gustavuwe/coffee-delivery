@@ -10,6 +10,7 @@ import {
 } from "phosphor-react";
 import {
   AdressText,
+  Button,
   ButtonsContainer,
   CheckoutFormContainer,
   InputsContainer,
@@ -27,10 +28,14 @@ import {
 import { useContext, useEffect, useState } from "react";
 import { CoffeesContext, type Coffee } from "../../../contexts/CoffeesContext";
 
+type buttonsToSelect = "money" | "credit-card" | "debit-card" | null;
+
 export function CheckoutForm() {
   const { coffees } = useContext(CoffeesContext);
 
   const [coffeesSelected, setCoffeesSelected] = useState<Coffee[]>([]);
+
+  const [selectedButton, setSelectedbutton] = useState<buttonsToSelect>(null)
 
   useEffect(() => {
     const CoffeesSelected = coffees.filter(
@@ -92,18 +97,27 @@ export function CheckoutForm() {
               </PaymentHeader>
 
               <ButtonsContainer>
-                <button>
+                <Button isSelected={selectedButton === "credit-card"} onClick={(e) => {
+                  e.preventDefault();
+                  setSelectedbutton("credit-card")
+                }}>
                   <CreditCard size={18} />
                   <p>CARTÃO DE CRÉDITO</p>
-                </button>
-                <button>
+                </Button>
+                <Button isSelected={selectedButton === "debit-card"} onClick={(e) => {
+                  e.preventDefault();
+                  setSelectedbutton("debit-card")
+                }}>
                   <Bank size={18} />
                   <p>CARTÃO DE DÉBITO</p>
-                </button>
-                <button>
+                </Button>
+                <Button isSelected={selectedButton === "money"} onClick={(e) => {
+                  e.preventDefault();
+                  setSelectedbutton("money")
+                }}>
                   <Money size={18} />
                   <p>DINHEIRO</p>
-                </button>
+                </Button>
               </ButtonsContainer>
             </PaymentForm>
           </PaymentContainer>
@@ -152,7 +166,7 @@ export function CheckoutForm() {
                 <p>Total de Itens</p>
                 <p>
                   R${" "}
-                  {coffees
+                  {coffeesSelected
                     .reduce((total, coffee) => total + coffee.price, 0)
                     .toFixed(2)}
                 </p>
@@ -165,7 +179,7 @@ export function CheckoutForm() {
                 <h1>Total</h1>
                 <h1>
                   R${" "}
-                  {coffees
+                  {coffeesSelected
                     .reduce((total, coffee) => total + coffee.price, 3.5)
                     .toFixed(2)}
                 </h1>

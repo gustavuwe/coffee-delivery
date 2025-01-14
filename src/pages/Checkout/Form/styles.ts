@@ -153,23 +153,23 @@ export const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1rem;
+`;
 
-  button {
-    padding: 1rem;
-    border-radius: 6px;
-    background-color: ${(props) => props.theme["base-button"]};
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-    border: none;
+export const Button = styled.button<{ isSelected: boolean }>`  
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: ${(props) => props.isSelected ? props.theme["purple-light"] : props.theme["base-button"]}; 
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  border: ${(props) => props.isSelected ? `1px solid ${props.theme["purple-dark"]} ` : "none"};
 
-    p {
-      color: ${(props) => props.theme["base-text"]};
-      font-size: 0.875rem;
-      font-family: "Roboto", sans-serif;
-      font-weight: 400;
-    }
+  p {
+    color: ${(props) => props.theme["base-text"]};
+    font-size: 0.875rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
   }
 `;
 
