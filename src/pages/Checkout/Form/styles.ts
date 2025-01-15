@@ -163,7 +163,7 @@ export const Button = styled.button<{ isSelected: boolean }>`
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
-  border: ${(props) => props.isSelected ? `1px solid ${props.theme["purple-dark"]} ` : "none"};
+  border: ${(props) => props.isSelected ? `1px solid ${props.theme["purple-dark"]} ` : "1px solid transparent"};
 
   p {
     color: ${(props) => props.theme["base-text"]};
