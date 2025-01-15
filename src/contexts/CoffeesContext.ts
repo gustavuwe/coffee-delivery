@@ -1,4 +1,5 @@
 import { createContext } from "react";
+import type { CheckoutFormData } from "../pages/Checkout/Form";
 
 export type Coffee = {
   id: number;
@@ -19,9 +20,11 @@ export interface removeCoffeeData {
 
 interface CoffeesContextType {
   coffees: Coffee[];
+  totalCoffeesSelected: number;
+  orderData: CheckoutFormData;
   addNewCoffee: (data: addNewCoffeeData) => void;
   removeCoffee: (data: removeCoffeeData) => void;
-  totalCoffeesSelected: number;
+  SetOrderData: (data: CheckoutFormData) => void;
 }
 
 export const CoffeesContext = createContext({} as CoffeesContextType);

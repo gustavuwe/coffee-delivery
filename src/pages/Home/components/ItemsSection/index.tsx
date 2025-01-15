@@ -7,7 +7,7 @@ import {
   RightButtonsContainer,
   ShopButton,
 } from "./styles";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CoffeesContext } from "../../../../contexts/CoffeesContext";
 

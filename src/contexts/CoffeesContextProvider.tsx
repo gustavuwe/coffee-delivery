@@ -187,13 +187,14 @@
 //   );
 // }
 
-import { useReducer, type ReactNode } from "react";
+import { useReducer, useState, type ReactNode } from "react";
 import { coffeesReducer } from "../reducers/coffees/reducer";
 import {
   addNewCoffeeAction,
   removeCoffeeAction,
 } from "../reducers/coffees/action";
 import { CoffeesContext, Coffee, addNewCoffeeData, removeCoffeeData } from "./CoffeesContext";
+import type { CheckoutFormData } from "../pages/Checkout/Form";
 
 const initialCoffees: Coffee[] = [
   {
@@ -325,12 +326,26 @@ export function CoffeesContextProvider({
     coffees: initialCoffees,
   });
 
+  const [orderData, setOrderData] = useState<CheckoutFormData>({
+      cep: "",
+      street: "",
+      number: "",
+      complement: "",
+      neighborhood: "",
+      city: "",
+      uf: "",
+    });
+
   function addNewCoffee(data: addNewCoffeeData) {
     dispatch(addNewCoffeeAction(data));
   }
 
   function removeCoffee(data: removeCoffeeData) {
     dispatch(removeCoffeeAction(data));
+  }
+
+  function SetOrderData(data: CheckoutFormData) {
+    setOrderData(data);
   }
 
   const totalCoffeesSelected = coffeeState.coffees.reduce(
@@ -340,7 +355,7 @@ export function CoffeesContextProvider({
 
   return (
     <CoffeesContext.Provider
-      value={{ coffees: coffeeState.coffees, addNewCoffee, removeCoffee, totalCoffeesSelected }}
+      value={{ coffees: coffeeState.coffees, addNewCoffee, removeCoffee, totalCoffeesSelected, orderData, SetOrderData }}
     >
       {children}
     </CoffeesContext.Provider>
