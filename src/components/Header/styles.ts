@@ -77,6 +77,24 @@ export const HeaderContainer = styled.header`
         margin-right: 0.5rem;
         margin: 0 auto;
       }
+
+      .cart-items-quantity {
+        position: absolute;
+        height: 1.25rem;
+        width: 1.25rem;
+        border-radius: 999px;
+        top: 1.5rem;
+        right: 9.5rem;
+        background-color: ${(props) => props.theme["yellow-dark"]};
+        color: white;
+        font-size: 0.75rem;
+        font-weight: bold;
+        display: flex;
+
+        p {
+          margin: auto;
+        }
     }
   }
+}
 `;
