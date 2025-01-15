@@ -27,11 +27,12 @@ import {
 } from "./styles";
 import { useContext, useEffect, useState } from "react";
 import { CoffeesContext, type Coffee } from "../../../contexts/CoffeesContext";
+import { NoCoffeeSelectedContainer } from "../../../components/Header/styles";
 
 type buttonsToSelect = "money" | "credit-card" | "debit-card" | null;
 
 export function CheckoutForm() {
-  const { coffees } = useContext(CoffeesContext);
+  const { coffees, totalCoffeesSelected } = useContext(CoffeesContext);
 
   const [coffeesSelected, setCoffeesSelected] = useState<Coffee[]>([]);
 
@@ -46,7 +47,8 @@ export function CheckoutForm() {
 
   return (
     <>
-      <CheckoutFormContainer>
+      {totalCoffeesSelected > 0 ? (
+        <CheckoutFormContainer>
         <LeftForm>
           <div>
             <LeftFormTitle>Complete seu Pedido</LeftFormTitle>
@@ -191,6 +193,12 @@ export function CheckoutForm() {
           </RightResume>
         </div>
       </CheckoutFormContainer>
+      ) : (
+        <NoCoffeeSelectedContainer>
+          <img src="src/assets/no-coffee-selected.png" alt="" />
+          <h1>Opa! Parece que você ainda não selecionou nenhum café</h1>
+        </NoCoffeeSelectedContainer>
+      )}
     </>
   );
 }

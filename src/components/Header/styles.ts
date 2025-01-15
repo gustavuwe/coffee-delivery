@@ -98,3 +98,23 @@ export const HeaderContainer = styled.header`
   }
 }
 `;
+
+export const NoCoffeeSelectedContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  img {
+    width: 400px;
+    height: auto;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    font-family: "Baloo 2", sans-serif;
+    color: ${(props) => props.theme["base-subtitle"]};	
+    font-weight: 900;
+  }
+`;
