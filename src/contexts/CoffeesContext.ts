@@ -21,6 +21,7 @@ interface CoffeesContextType {
   coffees: Coffee[];
   addNewCoffee: (data: addNewCoffeeData) => void;
   removeCoffee: (data: removeCoffeeData) => void;
+  totalCoffeesSelected: number;
 }
 
 export const CoffeesContext = createContext({} as CoffeesContextType);

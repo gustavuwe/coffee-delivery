@@ -333,9 +333,14 @@ export function CoffeesContextProvider({
     dispatch(removeCoffeeAction(data));
   }
 
+  const totalCoffeesSelected = coffeeState.coffees.reduce(
+    (total, coffee) => total + coffee.quantity,
+    0
+  );
+
   return (
     <CoffeesContext.Provider
-      value={{ coffees: coffeeState.coffees, addNewCoffee, removeCoffee }}
+      value={{ coffees: coffeeState.coffees, addNewCoffee, removeCoffee, totalCoffeesSelected }}
     >
       {children}
     </CoffeesContext.Provider>

@@ -6,12 +6,7 @@ import { CoffeesContext } from "../../contexts/CoffeesContext";
 import { Link } from "react-router-dom";
 
 export function Header() {
-  const { coffees } = useContext(CoffeesContext);
-
-  const totalCoffees = coffees.reduce(
-    (total, coffee) => total + coffee.quantity,
-    0
-  );
+  const { totalCoffeesSelected } = useContext(CoffeesContext);
 
   return (
     <HeaderContainer>
@@ -26,9 +21,9 @@ export function Header() {
         <Link to="/checkout">
           <button className="cart-button">
             <ShoppingCart size={24} color="#C47F17" weight="fill" />
-            {totalCoffees > 0 ? (
+            {totalCoffeesSelected > 0 ? (
               <div className="cart-items-quantity">
-                <p>{totalCoffees}</p>
+                <p>{totalCoffeesSelected}</p>
               </div>
             ) : null}
           </button>
